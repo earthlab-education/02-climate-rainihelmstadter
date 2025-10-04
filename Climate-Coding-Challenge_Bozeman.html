@@ -7517,15 +7517,14 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Climate-Change-in-Bozeman,-Montana">Climate Change in Bozeman, Montana<a class="anchor-link" href="#Climate-Change-in-Bozeman,-Montana">¶</a></h1><p>This notebook will analyze temperature data in Bozeman, MT to investigate for a warming trend due to climate change. I am using data from the NCEI - Station (PUT_STATION_HERE). I'll be using a simple linear regression to do this analysis, which is certainly a limited tool, but is a good place to start.</p>
-<p>DISCUSSION OF LR ASSUMPTIONS HERE</p>
-<p>If time allows, I'd also like to investigate snowfall amounts for a climate change signal. However, that will be a little bit harder, as precipitation data on a daily scale is a non-Gaussian data product.</p>
-<h2 id="To-Do">To-Do<a class="anchor-link" href="#To-Do">¶</a></h2><ul>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Finish documentation of Bozeman weather station once link works again</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Add discussion of LR Assumptions</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Complete Bozeman Tobs analysis</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Tackle Bozeman snowfall analysis?</li>
+<h1 id="Climate-Change-in-Bozeman,-Montana">Climate Change in Bozeman, Montana<a class="anchor-link" href="#Climate-Change-in-Bozeman,-Montana">¶</a></h1><p>This notebook will analyze temperature data in Bozeman, MT to investigate for a warming trend due to climate change. I am using data from the GHCND dataset from NCEI - Station ID (USC00241044). I'll be using a simple linear regression to do this analysis, which certainly has limitations, but is a good place to start.</p>
+<p>The conditions for linear OLS regression are largely met by my data:</p>
+<ul>
+<li>Temperature is a constantly fluctuating value, rather than something precipitation or wind speed, so it is safe to assume it is normally distributed. In addition, by aggregating the data to an annual mean, I have further reduced the potential impact of extreme values.</li>
+<li>The warming I expect to see should be fairly linear, given that climate change is slow moving, relative to an annual scale. We may want to move to a polynomial fit, but linear regression is a good place to start.</li>
+<li>Lastly, while Bozeman is probably influenced by hysteresis in the climate system to some extent (e.g. ice caps, oceanic teleconnections), the anomaly potentially introduced is likely negligible at this point, so we can assume the data are stationary.</li>
 </ul>
+<p>If time allows, I'd also like to investigate snowfall amounts for a climate change signal. However, that will be a little bit harder, as precipitation data on a daily scale is a non-Gaussian data product.</p>
 </div>
 </div>
 </div>
@@ -7590,9 +7589,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="456c2199-cb7a-4e06-8607-bcb9585feba5" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="8168995d-3dda-4e5c-ae33-62a2f60fad4e" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('456c2199-cb7a-4e06-8607-bcb9585feba5');
+var element = document.getElementById('8168995d-3dda-4e5c-ae33-62a2f60fad4e');
 (function(root) {
   function now() {
     return new Date();
@@ -7844,9 +7843,9 @@ function(Bokeh) {} // ensure no trailing comma for IE
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="6cb03e56-929a-4872-9526-7aa8d6bbb2f4" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="b4d759f3-be0d-43a9-a822-9a9212c05d2b" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('6cb03e56-929a-4872-9526-7aa8d6bbb2f4');
+var element = document.getElementById('b4d759f3-be0d-43a9-a822-9a9212c05d2b');
 
 if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
   window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
@@ -8108,11 +8107,11 @@ if (window.Jupyter !== undefined) {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <div id="p1011">
-<div data-root-id="p1011" id="d957f832-2141-485b-908d-ddadf025a0a2" style="display: contents;"></div>
+<div data-root-id="p1011" id="c609ab1c-9f52-4bd3-a360-f5cec0639370" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"758b848d-52aa-4831-9d31-e314938f4d5f":{"version":"3.8.0","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"p1009","attributes":{"notifications":{"type":"object","name":"Notifications","id":"p1010"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"p1011"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"p1012","attributes":{"plot_id":"p1011","comm_id":"8daa9f81160c44bc891b4fa34fa31b78","client_comm_id":"59d6738be9f740849d98fef2fcbcfe23"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]}]}};
-  var render_items = [{"docid":"758b848d-52aa-4831-9d31-e314938f4d5f","roots":{"p1011":"d957f832-2141-485b-908d-ddadf025a0a2"},"root_ids":["p1011"]}];
+  var docs_json = {"33ca4bee-ebaf-4b20-8824-6f06cc9a0e9f":{"version":"3.8.0","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"p1009","attributes":{"notifications":{"type":"object","name":"Notifications","id":"p1010"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"p1011"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"p1012","attributes":{"plot_id":"p1011","comm_id":"9e325c8e37bd413db138a642cfc17580","client_comm_id":"0ff11d95818a4fcc8cee7ba8b28942e9"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]}]}};
+  var render_items = [{"docid":"33ca4bee-ebaf-4b20-8824-6f06cc9a0e9f","roots":{"p1011":"c609ab1c-9f52-4bd3-a360-f5cec0639370"},"root_ids":["p1011"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -8195,12 +8194,7 @@ if (window.Jupyter !== undefined) {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Import-the-Data-and-Organize-into-a-DataFrame">Import the Data and Organize into a DataFrame<a class="anchor-link" href="#Import-the-Data-and-Organize-into-a-DataFrame">¶</a></h2><p>Add some descriptive text here</p>
-<ul>
-<li>Where from</li>
-<li>Station info</li>
-<li>etc</li>
-</ul>
+<h2 id="Import-the-Data-and-Organize-into-a-DataFrame">Import the Data and Organize into a DataFrame<a class="anchor-link" href="#Import-the-Data-and-Organize-into-a-DataFrame">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8494,7 +8488,7 @@ if (window.Jupyter !== undefined) {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clean up the DataFrame items and labels</span>
@@ -8522,7 +8516,7 @@ if (window.Jupyter !== undefined) {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8693,7 +8687,7 @@ if (window.Jupyter !== undefined) {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Resample the data</span>
@@ -8710,7 +8704,7 @@ if (window.Jupyter !== undefined) {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8808,7 +8802,7 @@ if (window.Jupyter !== undefined) {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data to make sure this looks better</span>
@@ -8821,7 +8815,9 @@ if (window.Jupyter !== undefined) {
     <span class="n">legend</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
-<span class="n">bzn_t_ann_plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'bzn_t_ann_plot.png'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># bzn_t_ann_plot</span>
 </pre></div>
 </div>
 </div>
@@ -8831,12 +8827,6 @@ if (window.Jupyter !== undefined) {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;Axes: title={'center': 'Daily Temperature in Bozeman, MT'}, xlabel='Year', ylabel='Temperature ($^\\circ$ F)'&gt;</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
